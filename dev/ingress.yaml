@@ -15,4 +15,4 @@ spec:
           service:
             name: block-api-service
             port:
-              number: 30011
+              number: 31503
