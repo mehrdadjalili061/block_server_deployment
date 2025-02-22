@@ -18,7 +18,7 @@ spec:
         - name: facegram-registery
       containers:
         - name: block-api-server
-          image: cr.fcgm.dev/facegram/block-service:12616d28
+          image: cr.fcgm.dev/facegram/block-service:0926493e
           ports:
             - containerPort: 8080
             - containerPort: 30011
