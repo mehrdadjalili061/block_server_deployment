@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: block-api-server
+  labels:
+    app: block-api-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: block-api-server
+  template:
+    metadata:
+      labels:
+        app: block-api-server
+    spec:
+      imagePullSecrets:
+        - name: facegram-registery
+      containers:
+        - name: block-api-server
+          image: ""
+          ports:
+            - containerPort: 8080
+            - containerPort: 30011
+          env:
+            - name: NODE_ENV
+              value: "dev"   
+          envFrom:
+            - secretRef:
+                name: grpc-client-configs
+            - secretRef:
+                name: grpc-client-urls 
+            - secretRef:
+                name: sentry-credential
+            - secretRef:
+                name: mongodb-credential
+            - secretRef:
+                name: rabbitmq-credential
+            - secretRef:
+                name: aes-keys                                                  
